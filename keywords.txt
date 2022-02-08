@@ -1,0 +1,34 @@
+
+
+EventJoystick KEYWORD1
+EventJoystickCallback KEYWORD1
+
+update	KEYWORD2
+
+setChangedHandler KEYWORD2
+setIdleHandler KEYWORD2
+
+setUserId KEYWORD2
+setUserState KEYWORD2
+
+setIdleTimeout KEYWORD2
+
+position KEYWORD2
+previousPosition KEYWORD2
+
+userId KEYWORD2
+userState KEYWORD2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
