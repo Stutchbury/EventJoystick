@@ -24,9 +24,17 @@ EventJoystick::EventJoystick() {
 void EventJoystick::update() {
   x.update();
   y.update();
-  //Serial.printf("x: %i, %i, y: %i, %i \n", x.position(), x.previousPosition(), y.position(), y.previousPosition());
   if ( x.hasChanged() || y.hasChanged() ) {
     if (changed_cb != NULL) changed_cb(*this);
+  }
+  if ( idleFired && (!x.isIdle() || !y.isIdle() ) ) {
+    idleFired = false;
+  }
+  if ( !idleFired && x.isIdle() && y.isIdle() ) {
+    if (enabled() ) {
+      if (idle_cb != NULL) idle_cb(*this);
+    }
+    idleFired = true; //We don't want the idle to fire after re-enabling
   }
 }
 

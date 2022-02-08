@@ -170,6 +170,7 @@ class EventJoystick {
   private:
     unsigned int _userId = 0;
     unsigned int _userState = 0;
+    bool idleFired = false;
 
 
 
