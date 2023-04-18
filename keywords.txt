@@ -13,6 +13,8 @@ setUserState KEYWORD2
 
 setIdleTimeout KEYWORD2
 
+setRateLimit KEYWORD2
+
 position KEYWORD2
 previousPosition KEYWORD2
 

@@ -9,7 +9,7 @@
  * 
  * GPLv2 Licence https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  * 
- * Copyright (c) 2022 Philip Fletcher <philip.fletcher@stutchbury.com>
+ * Copyright (c) 2023 Philip Fletcher <philip.fletcher@stutchbury.com>
  * 
  */
 
@@ -159,6 +159,7 @@ class EventJoystick {
      */
     bool isIdle();
     
+    void setRateLimit(uint16_t ms);
 
 
   protected:
@@ -170,6 +171,7 @@ class EventJoystick {
   private:
     unsigned int _userId = 0;
     unsigned int _userState = 0;
+    bool idleFired = false;
 
 
 

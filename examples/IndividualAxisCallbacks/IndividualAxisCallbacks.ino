@@ -39,6 +39,16 @@ void setup() {
   delay(500);
   Serial.println("EventJoystick Individual Axis Callback Example");
 
+  /**
+   * EventJoystick will attempt to set the start value for X & Y 
+   * when instantiated but on some microcontrollers, analogRead is
+   * not setup in time.
+   * If yu are not seing positve and negative values for each axis, 
+   * uncomment the following two lines:
+   */
+  //ej1.x.setStartValue(analogRead(A0));
+  //ej1.y.setStartValue(analogRead(A1));
+
   //Link the event(s) you require to your function
   /**
    * Here we are setting the changed handlers on the individual axis.

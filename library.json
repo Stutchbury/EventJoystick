@@ -1,0 +1,27 @@
+{
+    "name": "EventJoystick",
+    "version": "1.0.2",
+    "description": "Event based library for analog joysticks. Slice each axis of the joysick into configurable increments and a callback will be fired on each change of increment. Effective noise reduction built in.",
+    "keywords": "analog, event, joystick, potentometer",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/Stutchbury/EventJoystick.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Philip Fletcher",
+        "email": "philip.fletcher@stutchbury.com",
+        "url": "https://stutchbury.com",
+        "maintainer": true
+      }
+    ],
+    "license": "GPL-2.0",
+    "homepage": "https://github.com/Stutchbury/EventJoystick/",
+    "dependencies": {
+      "Stutchbury/EventAnalog": "1.0.3"
+    },
+    "frameworks": "Arduino",
+    "platforms": "*"
+  }

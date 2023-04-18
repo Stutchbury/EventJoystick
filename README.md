@@ -80,7 +80,7 @@ Note: this will be fired just once if both axis positions change in the update()
 
 **```setIdleHandler```** fires after both axis of the EventJoystick have been idle for ```setIdleTimeout(ms)``` (default 10 seconds).
 
-**```setNumIncrements(uint8_t)```** Split both axis analog range into this number of slices. Each axis can optionally be sliced individually after this has been set.
+**```setNumIncrements(uint8_t)```** Split both axis analog range into this number of slices. Each axis can optionally be sliced individually after this has been set. Note: This library is intended to reduce the usual 0-1024 range of analogRead() to a much smaller, more manageable number of 'slices'. Higher numbers may not produce accurate results.
 
 A changed callback will be fire each time the increment changes on either axis.
 
@@ -92,6 +92,8 @@ A changed callback will be fire each time the increment changes on either axis.
 **```setStartBoundary(uint16_t)```** It is very difficult to press the joystick button without moving the stick so with this we can create a central 'deadzone'. Parameter in the analog value, not increment position. 
 
 **```setEndBoundary(uint16_t)```** Create an outer 'deadzone' where joysticks are notoriously inconsistent. Parameter is the analog value, not the increment position.
+
+**```setRateLimit(uint16_t ms)```** EventJoystick callbacks are normally fired on every loop() but to limit the number of events fired when the joystick is moved quickly, you can set a rate limit here. Note: A high rate limit may reduce responsiveness.
 
 
 

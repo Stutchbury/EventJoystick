@@ -2,7 +2,7 @@
  *
  * GPLv2 Licence https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
  * 
- * Copyright (c) 2022 Philip Fletcher <philip.fletcher@stutchbury.com>
+ * Copyright (c) 2023 Philip Fletcher <philip.fletcher@stutchbury.com>
  * 
  */
 
@@ -24,9 +24,17 @@ EventJoystick::EventJoystick() {
 void EventJoystick::update() {
   x.update();
   y.update();
-  //Serial.printf("x: %i, %i, y: %i, %i \n", x.position(), x.previousPosition(), y.position(), y.previousPosition());
   if ( x.hasChanged() || y.hasChanged() ) {
     if (changed_cb != NULL) changed_cb(*this);
+  }
+  if ( idleFired && (!x.isIdle() || !y.isIdle() ) ) {
+    idleFired = false;
+  }
+  if ( !idleFired && x.isIdle() && y.isIdle() ) {
+    if (enabled() ) {
+      if (idle_cb != NULL) idle_cb(*this);
+    }
+    idleFired = true; //We don't want the idle to fire after re-enabling
   }
 }
 
@@ -86,4 +94,8 @@ bool EventJoystick::isIdle() {
   return x.isIdle() && y.isIdle();
 }
 
+void EventJoystick::setRateLimit(uint16_t ms) {
+  x.setRateLimit(ms);
+  y.setRateLimit(ms);
+}
 
