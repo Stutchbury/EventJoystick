@@ -1,5 +1,7 @@
 # EventJoystick
 
+> **The new version of EventJoystick can now be found in the [InputEvents library](https://github.com/Stutchbury/InputEvents).**
+
 Based on [EventAnalog](https://github.com/Stutchbury/EventAnalog), this is an event based library for analog joysticks - slice the analog range of each axis into a configurable number of increments and a callback will be fired on each change of increment. 
 
 Start and end (ie centre and edge for joysicks) 'deadzones' can be configured - the button on small joysticks is difficult to press wothout moving the stick and the edge values are unreliable.
